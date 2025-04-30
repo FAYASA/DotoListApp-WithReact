@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\Learn React\\Project\\api\\API_with_react\\API_with_react\\API_with_react.csproj": {}
+    "C:\\Users\\Fayas\\Source\\Repos\\Sample_APIwithReact\\API_with_react\\API_with_react\\API_with_react.csproj": {}
   },
   "projects": {
-    "D:\\Work\\Learn React\\Project\\api\\API_with_react\\API_with_react\\API_with_react.csproj": {
+    "C:\\Users\\Fayas\\Source\\Repos\\Sample_APIwithReact\\API_with_react\\API_with_react\\API_with_react.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Learn React\\Project\\api\\API_with_react\\API_with_react\\API_with_react.csproj",
+        "projectUniqueName": "C:\\Users\\Fayas\\Source\\Repos\\Sample_APIwithReact\\API_with_react\\API_with_react\\API_with_react.csproj",
         "projectName": "API_with_react",
-        "projectPath": "D:\\Work\\Learn React\\Project\\api\\API_with_react\\API_with_react\\API_with_react.csproj",
+        "projectPath": "C:\\Users\\Fayas\\Source\\Repos\\Sample_APIwithReact\\API_with_react\\API_with_react\\API_with_react.csproj",
         "packagesPath": "C:\\Users\\Fayas\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Learn React\\Project\\api\\API_with_react\\API_with_react\\obj\\",
+        "outputPath": "C:\\Users\\Fayas\\Source\\Repos\\Sample_APIwithReact\\API_with_react\\API_with_react\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.36, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
