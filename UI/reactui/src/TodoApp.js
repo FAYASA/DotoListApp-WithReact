@@ -51,7 +51,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-start justify-center py-10 px-4">
+    <div className="min-h-screen bg-gray-100 flex items-start justify-center py-10 px-4" align ='center'>
       <div className="bg-white w-full max-w-3xl border border-gray-300 p-8 rounded shadow">
         <h1 className="text-3xl font-bold text-center mb-8 text-blue-700">📝 My Todo App</h1>
 
@@ -67,6 +67,9 @@ const App = () => {
             className="md:col-span-6 border border-gray-300 px-4 py-2 rounded focus:ring-2 focus:ring-blue-300"
           />
           <div className="md:col-span-3 flex justify-end">
+          <br></br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
             <button
               onClick={addNote}
               disabled={!newNote.trim()}
