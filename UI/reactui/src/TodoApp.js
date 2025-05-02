@@ -51,71 +51,76 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-start justify-center py-10 px-4" align ='center'>
-      <div className="bg-white w-full max-w-3xl border border-gray-300 p-8 rounded shadow">
-        <h1 className="text-3xl font-bold text-center mb-8 text-blue-700">📝 My Todo App</h1>
+    <div className="container py-5">
+      <div className="card shadow-sm">
+        <div className="card-body">
+          <h1 className="card-title text-center mb-4 text-primary">📝 My Todo App</h1>
 
-        {/* Input Form Section */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-4 md:gap-x-4 mb-6">
-          <label className="md:col-span-3 font-semibold text-gray-700 flex items-center">
-            New Note:
-          </label>
-          <input
-            value={newNote}
-            onChange={(e) => setNewNote(e.target.value)}
-            placeholder="Enter your note"
-            className="md:col-span-6 border border-gray-300 px-4 py-2 rounded focus:ring-2 focus:ring-blue-300"
-          />
-          <div className="md:col-span-3 flex justify-end">
-          <br></br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <button
-              onClick={addNote}
-              disabled={!newNote.trim()}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded disabled:opacity-50"
-            >
-              Add Note
-            </button>
+          {/* Input Form */}
+          <div className="row g-3 align-items-center mb-3">
+            <div className="col-md-3 text-end">
+              <label htmlFor="noteInput" className="form-label fw-semibold">
+                New Note:
+              </label>
+            </div>
+            <div className="col-md-6">
+              <input
+                id="noteInput"
+                value={newNote}
+                onChange={(e) => setNewNote(e.target.value)}
+                placeholder="Enter your note"
+                className="form-control"
+              />
+            </div>
+            <div className="col-md-3 text-start">
+              <button
+                onClick={addNote}
+                disabled={!newNote.trim()}
+                className="btn btn-primary"
+              >
+                Add Note
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Error Message */}
-        {error && <div className="text-red-600 text-sm mb-4 text-center">{error}</div>}
+          {/* Error Message */}
+          {error && <div className="alert alert-danger text-center">{error}</div>}
 
-        {/* Notes Display */}
-        <h2 className="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">📋 Your Notes</h2>
-        {loading ? (
-          <p className="text-center text-gray-500">Loading...</p>
-        ) : notes.length === 0 ? (
-          <p className="text-center text-gray-500">No notes yet.</p>
-        ) : (
-          <table className="w-full border border-gray-300 text-sm">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="text-left p-2 border-b border-gray-300">#</th>
-                <th className="text-left p-2 border-b border-gray-300">Note</th>
-                <th className="text-right p-2 border-b border-gray-300">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {notes.map((note, index) => (
-                <tr key={note.id} className="hover:bg-gray-50">
-                  <td className="p-2 border-b border-gray-200">{index + 1}</td>
-                  <td className="p-2 border-b border-gray-200">{note.description}</td>
-                  <td className="p-2 border-b border-gray-200 text-right">
-                    <button
-                      onClick={() => deleteNote(note.id)}
-                      className="text-red-600 hover:underline text-sm"
-                    >
-                      Delete
-                    </button>
-                  </td>
+          {/* Notes Display */}
+          <h5 className="mb-3 border-bottom pb-2">📋 Your Notes</h5>
+
+          {loading ? (
+            <p className="text-center text-muted">Loading...</p>
+          ) : notes.length === 0 ? (
+            <p className="text-center text-muted">No notes yet.</p>
+          ) : (
+            <table className="table table-bordered table-striped">
+              <thead className="table-light">
+                <tr>
+                  <th>#</th>
+                  <th>Note</th>
+                  <th className="text-end">Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+              </thead>
+              <tbody>
+                {notes.map((note, index) => (
+                  <tr key={note.id}>
+                    <td>{index + 1}</td>
+                    <td>{note.description}</td>
+                    <td className="text-end">
+                      <button
+                        onClick={() => deleteNote(note.id)}
+                        className="btn btn-sm btn-outline-danger"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
       </div>
     </div>
   );
